@@ -1,0 +1,14 @@
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\bin\Debug\DataAcessLayer.dll
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\bin\Debug\Entities.dll
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\bin\Debug\DataAcessLayer.pdb
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\bin\Debug\DataAcessLayer.dll.config
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\bin\Debug\Entities.pdb
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\obj\Debug\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\kaana\source\repos\IlanTakip\BusinessLayer\obj\Debug\BusinessLayer.pdb

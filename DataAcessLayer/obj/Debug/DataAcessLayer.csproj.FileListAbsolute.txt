@@ -1,0 +1,16 @@
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\bin\Debug\DataAcessLayer.dll.config
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\bin\Debug\DataAcessLayer.dll
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\bin\Debug\DataAcessLayer.pdb
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\bin\Debug\Entities.dll
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\bin\Debug\EntityFramework.dll
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\bin\Debug\Entities.pdb
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\bin\Debug\EntityFramework.xml
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.AssemblyReference.cache
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.CoreCompileInputs.cache
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.CopyComplete
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\obj\Debug\DataAcessLayer.dll
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\obj\Debug\DataAcessLayer.pdb
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\obj\Debug\DataAcessLayer.Migrations.db1.resources
+C:\Users\kaana\source\repos\IlanTakip\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.GenerateResource.cache
