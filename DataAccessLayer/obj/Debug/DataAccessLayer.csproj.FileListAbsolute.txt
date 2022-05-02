@@ -1,0 +1,11 @@
+C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

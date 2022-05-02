@@ -24,6 +24,24 @@ namespace IlanTakip
 		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
 		/// <summary>
+		/// floatingInput control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl floatingInput;
+
+		/// <summary>
+		/// floatingPassword control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlInputPassword floatingPassword;
+
+		/// <summary>
 		/// SignIn control.
 		/// </summary>
 		/// <remarks>
@@ -31,6 +49,24 @@ namespace IlanTakip
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Button SignIn;
+
+		/// <summary>
+		/// RegisterButton control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button RegisterButton;
+
+		/// <summary>
+		/// ForgotPassword control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button ForgotPassword;
 
 		/// <summary>
 		/// Label1 control.

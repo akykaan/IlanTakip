@@ -1,0 +1,848 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IlanTakipDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Candidates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdentityNumber" Type="nvarchar(max)" />
+          <Property Name="BirthYear" Type="int" Nullable="false" />
+          <Property Name="CvId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CityName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Cvs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GitHubLink" Type="nvarchar(max)" />
+          <Property Name="CoverLetter" Type="nvarchar(max)" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Candidate_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Employers">
+          <Key>
+            <PropertyRef Name="EmployersId" />
+          </Key>
+          <Property Name="EmployersId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Phone" Type="int" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventTitle" Type="nvarchar(max)" />
+          <Property Name="EventOwner" Type="nvarchar(max)" />
+          <Property Name="EventDay" Type="datetime" Nullable="false" />
+          <Property Name="Candidate_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="JobAdverts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobDescription" Type="nvarchar(max)" />
+          <Property Name="JobTitle" Type="nvarchar(max)" />
+          <Property Name="CityName" Type="nvarchar(max)" />
+          <Property Name="OpenPosition" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="EmployerId" Type="int" Nullable="false" />
+          <Property Name="Employer_EmployersId" Type="int" />
+          <Property Name="City_CityId" Type="int" />
+        </EntityType>
+        <EntityType Name="JobExperiences">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkPlaceName" Type="nvarchar(max)" />
+          <Property Name="Position" Type="nvarchar(max)" />
+          <Property Name="StartYear" Type="datetime" Nullable="false" />
+          <Property Name="EndYear" Type="datetime" Nullable="false" />
+          <Property Name="CvId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageLevel" Type="int" Nullable="false" />
+          <Property Name="LanguageName" Type="nvarchar(max)" />
+          <Property Name="ProgrammingLanguageLevel" Type="int" Nullable="false" />
+          <Property Name="ProgrammingLanguageName" Type="nvarchar(max)" />
+          <Property Name="Cv_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Schools">
+          <Key>
+            <PropertyRef Name="SchoolId" />
+          </Key>
+          <Property Name="SchoolId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolName" Type="nvarchar(max)" />
+          <Property Name="DepartmentName" Type="nvarchar(max)" />
+          <Property Name="StartYear" Type="nvarchar(max)" />
+          <Property Name="StartEnd" Type="nvarchar(max)" />
+          <Property Name="cv_id" Type="int" />
+        </EntityType>
+        <EntityType Name="SubMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuId" Type="int" />
+          <Property Name="MenuName" Type="varchar" MaxLength="50" />
+          <Property Name="Url" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="8" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Authority" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Candidates_ToUser">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Candidates">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Cvs_dbo_Candidates_Candidate_Id">
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1" />
+          <End Role="Cvs" Type="Self.Cvs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cvs">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Events_dbo_Candidates_Candidate_Id">
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_JobAdverts_dbo_Cities_City_CityId">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="JobAdverts" Type="Self.JobAdverts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="JobAdverts">
+              <PropertyRef Name="City_CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId">
+          <End Role="Employers" Type="Self.Employers" Multiplicity="0..1" />
+          <End Role="JobAdverts" Type="Self.JobAdverts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employers">
+              <PropertyRef Name="EmployersId" />
+            </Principal>
+            <Dependent Role="JobAdverts">
+              <PropertyRef Name="Employer_EmployersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_JobExperiences_dbo_Cvs_CvId">
+          <End Role="Cvs" Type="Self.Cvs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobExperiences" Type="Self.JobExperiences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cvs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="JobExperiences">
+              <PropertyRef Name="CvId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Languages_dbo_Cvs_Cv_id">
+          <End Role="Cvs" Type="Self.Cvs" Multiplicity="0..1" />
+          <End Role="Languages" Type="Self.Languages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cvs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Languages">
+              <PropertyRef Name="Cv_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Schools_dbo_Cvs_cv_id">
+          <End Role="Cvs" Type="Self.Cvs" Multiplicity="0..1" />
+          <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cvs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Schools">
+              <PropertyRef Name="cv_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employers_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Employers" Type="Self.Employers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employers">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubMenu_ToMenu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+          <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubMenu">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IlanTakipDbModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Candidates" EntityType="Self.Candidates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cvs" EntityType="Self.Cvs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employers" EntityType="Self.Employers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobAdverts" EntityType="Self.JobAdverts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobExperiences" EntityType="Self.JobExperiences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schools" EntityType="Self.Schools" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubMenu" EntityType="Self.SubMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Candidates_ToUser" Association="Self.FK_Candidates_ToUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="Candidates" EntitySet="Candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Cvs_dbo_Candidates_Candidate_Id" Association="Self.FK_dbo_Cvs_dbo_Candidates_Candidate_Id">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="Cvs" EntitySet="Cvs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Events_dbo_Candidates_Candidate_Id" Association="Self.FK_dbo_Events_dbo_Candidates_Candidate_Id">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_JobAdverts_dbo_Cities_City_CityId" Association="Self.FK_dbo_JobAdverts_dbo_Cities_City_CityId">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="JobAdverts" EntitySet="JobAdverts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" Association="Self.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId">
+            <End Role="Employers" EntitySet="Employers" />
+            <End Role="JobAdverts" EntitySet="JobAdverts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_JobExperiences_dbo_Cvs_CvId" Association="Self.FK_dbo_JobExperiences_dbo_Cvs_CvId">
+            <End Role="Cvs" EntitySet="Cvs" />
+            <End Role="JobExperiences" EntitySet="JobExperiences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Languages_dbo_Cvs_Cv_id" Association="Self.FK_dbo_Languages_dbo_Cvs_Cv_id">
+            <End Role="Cvs" EntitySet="Cvs" />
+            <End Role="Languages" EntitySet="Languages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Schools_dbo_Cvs_cv_id" Association="Self.FK_dbo_Schools_dbo_Cvs_cv_id">
+            <End Role="Cvs" EntitySet="Cvs" />
+            <End Role="Schools" EntitySet="Schools" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employers_User" Association="Self.FK_Employers_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Employers" EntitySet="Employers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubMenu_ToMenu" Association="Self.FK_SubMenu_ToMenu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="SubMenu" EntitySet="SubMenu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IlanTakipDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Candidates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdentityNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BirthYear" Type="Int32" Nullable="false" />
+          <Property Name="CvId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Candidates_ToUser" FromRole="Candidates" ToRole="User" />
+          <NavigationProperty Name="Cvs" Relationship="Self.FK_dbo_Cvs_dbo_Candidates_Candidate_Id" FromRole="Candidates" ToRole="Cvs" />
+          <NavigationProperty Name="Events" Relationship="Self.FK_dbo_Events_dbo_Candidates_Candidate_Id" FromRole="Candidates" ToRole="Events" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="JobAdverts" Relationship="Self.FK_dbo_JobAdverts_dbo_Cities_City_CityId" FromRole="Cities" ToRole="JobAdverts" />
+        </EntityType>
+        <EntityType Name="Cvs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GitHubLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CoverLetter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Candidate_Id" Type="Int32" />
+          <NavigationProperty Name="Candidates" Relationship="Self.FK_dbo_Cvs_dbo_Candidates_Candidate_Id" FromRole="Cvs" ToRole="Candidates" />
+          <NavigationProperty Name="JobExperiences" Relationship="Self.FK_dbo_JobExperiences_dbo_Cvs_CvId" FromRole="Cvs" ToRole="JobExperiences" />
+          <NavigationProperty Name="Languages" Relationship="Self.FK_dbo_Languages_dbo_Cvs_Cv_id" FromRole="Cvs" ToRole="Languages" />
+          <NavigationProperty Name="Schools" Relationship="Self.FK_dbo_Schools_dbo_Cvs_cv_id" FromRole="Cvs" ToRole="Schools" />
+        </EntityType>
+        <EntityType Name="Employers">
+          <Key>
+            <PropertyRef Name="EmployersId" />
+          </Key>
+          <Property Name="EmployersId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Phone" Type="Int32" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="JobAdverts" Relationship="Self.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" FromRole="Employers" ToRole="JobAdverts" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Employers_User" FromRole="Employers" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EventOwner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EventDay" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Candidate_Id" Type="Int32" />
+          <NavigationProperty Name="Candidates" Relationship="Self.FK_dbo_Events_dbo_Candidates_Candidate_Id" FromRole="Events" ToRole="Candidates" />
+        </EntityType>
+        <EntityType Name="JobAdverts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OpenPosition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="EmployerId" Type="Int32" Nullable="false" />
+          <Property Name="Employer_EmployersId" Type="Int32" />
+          <Property Name="City_CityId" Type="Int32" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_dbo_JobAdverts_dbo_Cities_City_CityId" FromRole="JobAdverts" ToRole="Cities" />
+          <NavigationProperty Name="Employers" Relationship="Self.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" FromRole="JobAdverts" ToRole="Employers" />
+        </EntityType>
+        <EntityType Name="JobExperiences">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkPlaceName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StartYear" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndYear" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CvId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cvs" Relationship="Self.FK_dbo_JobExperiences_dbo_Cvs_CvId" FromRole="JobExperiences" ToRole="Cvs" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageLevel" Type="Int32" Nullable="false" />
+          <Property Name="LanguageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProgrammingLanguageLevel" Type="Int32" Nullable="false" />
+          <Property Name="ProgrammingLanguageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Cv_id" Type="Int32" />
+          <NavigationProperty Name="Cvs" Relationship="Self.FK_dbo_Languages_dbo_Cvs_Cv_id" FromRole="Languages" ToRole="Cvs" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SubMenu" Relationship="Self.FK_SubMenu_ToMenu" FromRole="Menu" ToRole="SubMenu" />
+        </EntityType>
+        <EntityType Name="Schools">
+          <Key>
+            <PropertyRef Name="SchoolId" />
+          </Key>
+          <Property Name="SchoolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StartYear" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StartEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cv_id" Type="Int32" />
+          <NavigationProperty Name="Cvs" Relationship="Self.FK_dbo_Schools_dbo_Cvs_cv_id" FromRole="Schools" ToRole="Cvs" />
+        </EntityType>
+        <EntityType Name="SubMenu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuId" Type="Int32" />
+          <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK_SubMenu_ToMenu" FromRole="SubMenu" ToRole="Menu" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Authority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidates_ToUser" FromRole="User" ToRole="Candidates" />
+          <NavigationProperty Name="Employers" Relationship="Self.FK_Employers_User" FromRole="User" ToRole="Employers" />
+        </EntityType>
+        <Association Name="FK_Candidates_ToUser">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Candidates">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Cvs_dbo_Candidates_Candidate_Id">
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1" />
+          <End Role="Cvs" Type="Self.Cvs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cvs">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Events_dbo_Candidates_Candidate_Id">
+          <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1" />
+          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Candidates">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_JobAdverts_dbo_Cities_City_CityId">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="JobAdverts" Type="Self.JobAdverts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="JobAdverts">
+              <PropertyRef Name="City_CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_JobExperiences_dbo_Cvs_CvId">
+          <End Role="Cvs" Type="Self.Cvs" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="JobExperiences" Type="Self.JobExperiences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cvs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="JobExperiences">
+              <PropertyRef Name="CvId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Languages_dbo_Cvs_Cv_id">
+          <End Role="Cvs" Type="Self.Cvs" Multiplicity="0..1" />
+          <End Role="Languages" Type="Self.Languages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cvs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Languages">
+              <PropertyRef Name="Cv_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Schools_dbo_Cvs_cv_id">
+          <End Role="Cvs" Type="Self.Cvs" Multiplicity="0..1" />
+          <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cvs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Schools">
+              <PropertyRef Name="cv_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId">
+          <End Role="Employers" Type="Self.Employers" Multiplicity="0..1" />
+          <End Role="JobAdverts" Type="Self.JobAdverts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employers">
+              <PropertyRef Name="EmployersId" />
+            </Principal>
+            <Dependent Role="JobAdverts">
+              <PropertyRef Name="Employer_EmployersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employers_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Employers" Type="Self.Employers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employers">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubMenu_ToMenu">
+          <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+          <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubMenu">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IlanTakipDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Candidates" EntityType="Self.Candidates" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" />
+          <EntitySet Name="Cvs" EntityType="Self.Cvs" />
+          <EntitySet Name="Employers" EntityType="Self.Employers" />
+          <EntitySet Name="Events" EntityType="Self.Events" />
+          <EntitySet Name="JobAdverts" EntityType="Self.JobAdverts" />
+          <EntitySet Name="JobExperiences" EntityType="Self.JobExperiences" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" />
+          <EntitySet Name="Schools" EntityType="Self.Schools" />
+          <EntitySet Name="SubMenu" EntityType="Self.SubMenu" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Candidates_ToUser" Association="Self.FK_Candidates_ToUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="Candidates" EntitySet="Candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Cvs_dbo_Candidates_Candidate_Id" Association="Self.FK_dbo_Cvs_dbo_Candidates_Candidate_Id">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="Cvs" EntitySet="Cvs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Events_dbo_Candidates_Candidate_Id" Association="Self.FK_dbo_Events_dbo_Candidates_Candidate_Id">
+            <End Role="Candidates" EntitySet="Candidates" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_JobAdverts_dbo_Cities_City_CityId" Association="Self.FK_dbo_JobAdverts_dbo_Cities_City_CityId">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="JobAdverts" EntitySet="JobAdverts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_JobExperiences_dbo_Cvs_CvId" Association="Self.FK_dbo_JobExperiences_dbo_Cvs_CvId">
+            <End Role="Cvs" EntitySet="Cvs" />
+            <End Role="JobExperiences" EntitySet="JobExperiences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Languages_dbo_Cvs_Cv_id" Association="Self.FK_dbo_Languages_dbo_Cvs_Cv_id">
+            <End Role="Cvs" EntitySet="Cvs" />
+            <End Role="Languages" EntitySet="Languages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Schools_dbo_Cvs_cv_id" Association="Self.FK_dbo_Schools_dbo_Cvs_cv_id">
+            <End Role="Cvs" EntitySet="Cvs" />
+            <End Role="Schools" EntitySet="Schools" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" Association="Self.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId">
+            <End Role="Employers" EntitySet="Employers" />
+            <End Role="JobAdverts" EntitySet="JobAdverts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employers_User" Association="Self.FK_Employers_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Employers" EntitySet="Employers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubMenu_ToMenu" Association="Self.FK_SubMenu_ToMenu">
+            <End Role="Menu" EntitySet="Menu" />
+            <End Role="SubMenu" EntitySet="SubMenu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IlanTakipDbModelStoreContainer" CdmEntityContainer="IlanTakipDbEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Candidates">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.Candidates">
+              <MappingFragment StoreEntitySet="Candidates">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+                <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+                <ScalarProperty Name="CvId" ColumnName="CvId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.Cities">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cvs">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.Cvs">
+              <MappingFragment StoreEntitySet="Cvs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="GitHubLink" ColumnName="GitHubLink" />
+                <ScalarProperty Name="CoverLetter" ColumnName="CoverLetter" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employers">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.Employers">
+              <MappingFragment StoreEntitySet="Employers">
+                <ScalarProperty Name="EmployersId" ColumnName="EmployersId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.Events">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="EventTitle" ColumnName="EventTitle" />
+                <ScalarProperty Name="EventOwner" ColumnName="EventOwner" />
+                <ScalarProperty Name="EventDay" ColumnName="EventDay" />
+                <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobAdverts">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.JobAdverts">
+              <MappingFragment StoreEntitySet="JobAdverts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="OpenPosition" ColumnName="OpenPosition" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="EmployerId" ColumnName="EmployerId" />
+                <ScalarProperty Name="Employer_EmployersId" ColumnName="Employer_EmployersId" />
+                <ScalarProperty Name="City_CityId" ColumnName="City_CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobExperiences">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.JobExperiences">
+              <MappingFragment StoreEntitySet="JobExperiences">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="WorkPlaceName" ColumnName="WorkPlaceName" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="StartYear" ColumnName="StartYear" />
+                <ScalarProperty Name="EndYear" ColumnName="EndYear" />
+                <ScalarProperty Name="CvId" ColumnName="CvId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.Languages">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LanguageLevel" ColumnName="LanguageLevel" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+                <ScalarProperty Name="ProgrammingLanguageLevel" ColumnName="ProgrammingLanguageLevel" />
+                <ScalarProperty Name="ProgrammingLanguageName" ColumnName="ProgrammingLanguageName" />
+                <ScalarProperty Name="Cv_id" ColumnName="Cv_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schools">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.Schools">
+              <MappingFragment StoreEntitySet="Schools">
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+                <ScalarProperty Name="StartYear" ColumnName="StartYear" />
+                <ScalarProperty Name="StartEnd" ColumnName="StartEnd" />
+                <ScalarProperty Name="cv_id" ColumnName="cv_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubMenu">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.SubMenu">
+              <MappingFragment StoreEntitySet="SubMenu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="IlanTakipDbModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Authority" ColumnName="Authority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

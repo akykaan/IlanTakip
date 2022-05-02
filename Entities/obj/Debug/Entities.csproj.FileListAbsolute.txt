@@ -1,6 +1,15 @@
 C:\Users\kaana\source\repos\IlanTakip\Entities\bin\Debug\Entities.dll
 C:\Users\kaana\source\repos\IlanTakip\Entities\bin\Debug\Entities.pdb
-C:\Users\kaana\source\repos\IlanTakip\Entities\obj\Debug\Entities.csproj.AssemblyReference.cache
 C:\Users\kaana\source\repos\IlanTakip\Entities\obj\Debug\Entities.csproj.CoreCompileInputs.cache
 C:\Users\kaana\source\repos\IlanTakip\Entities\obj\Debug\Entities.dll
 C:\Users\kaana\source\repos\IlanTakip\Entities\obj\Debug\Entities.pdb
+C:\Users\kaana\source\repos\IlanTakip\Entities\obj\Debug\Entities.csproj.AssemblyReference.cache
+C:\Users\kaana\source\repos\IlanTakip\Entities\bin\Debug\Entities.dll.config
+C:\Users\kaana\source\repos\IlanTakip\Entities\bin\Debug\DataAccessLayer.dll
+C:\Users\kaana\source\repos\IlanTakip\Entities\bin\Debug\EntityFramework.dll
+C:\Users\kaana\source\repos\IlanTakip\Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kaana\source\repos\IlanTakip\Entities\bin\Debug\DataAccessLayer.pdb
+C:\Users\kaana\source\repos\IlanTakip\Entities\bin\Debug\DataAccessLayer.dll.config
+C:\Users\kaana\source\repos\IlanTakip\Entities\bin\Debug\EntityFramework.xml
+C:\Users\kaana\source\repos\IlanTakip\Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kaana\source\repos\IlanTakip\Entities\obj\Debug\Entities.csproj.CopyComplete

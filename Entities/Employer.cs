@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-	public class Employer
+	public class Employer:User
 	{
 		[Key]
 		public int EmployersId { get; set; }
-		public string Name { get; set; }
+		//public string Name { get; set; }
 		public int Phone { get; set; }
-		public string CompanyMailAddress { get; set; }
+		//public string CompanyMailAddress { get; set; }
 		public string CompanyName { get; set; }
-		public string Password { get; set; }
+		//public string Password { get; set; }
 
 		public List<JobAdvert> JobAdverts { get; set; }
 	}
