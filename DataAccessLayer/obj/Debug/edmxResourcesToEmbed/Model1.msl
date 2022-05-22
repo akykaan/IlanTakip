@@ -3,153 +3,151 @@
   <EntityContainerMapping StorageEntityContainer="IlanTakipDbModelStoreContainer" CdmEntityContainer="IlanTakipDbEntities">
     <EntitySetMapping Name="C__MigrationHistory">
       <EntityTypeMapping TypeName="IlanTakipDbModel.C__MigrationHistory">
-        <MappingFragment StoreEntitySet="__MigrationHistory">
-          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
+        <MappingFragment StoreEntitySet="C__MigrationHistory">
           <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Candidates">
       <EntityTypeMapping TypeName="IlanTakipDbModel.Candidates">
         <MappingFragment StoreEntitySet="Candidates">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
-          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
-          <ScalarProperty Name="CvId" ColumnName="CvId" />
+          <ScalarProperty Name="Authority" ColumnName="Authority" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CvId" ColumnName="CvId" />
+          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+          <ScalarProperty Name="IdentityNumber" ColumnName="IdentityNumber" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Cities">
       <EntityTypeMapping TypeName="IlanTakipDbModel.Cities">
         <MappingFragment StoreEntitySet="Cities">
-          <ScalarProperty Name="CityId" ColumnName="CityId" />
           <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Cvs">
       <EntityTypeMapping TypeName="IlanTakipDbModel.Cvs">
         <MappingFragment StoreEntitySet="Cvs">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="GitHubLink" ColumnName="GitHubLink" />
-          <ScalarProperty Name="CoverLetter" ColumnName="CoverLetter" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CoverLetter" ColumnName="CoverLetter" />
+          <ScalarProperty Name="GitHubLink" ColumnName="GitHubLink" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Employers">
       <EntityTypeMapping TypeName="IlanTakipDbModel.Employers">
         <MappingFragment StoreEntitySet="Employers">
-          <ScalarProperty Name="EmployersId" ColumnName="EmployersId" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CompanyMailAddress" ColumnName="CompanyMailAddress" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="EmployersId" ColumnName="EmployersId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Events">
       <EntityTypeMapping TypeName="IlanTakipDbModel.Events">
         <MappingFragment StoreEntitySet="Events">
-          <ScalarProperty Name="EventId" ColumnName="EventId" />
-          <ScalarProperty Name="EventTitle" ColumnName="EventTitle" />
-          <ScalarProperty Name="EventOwner" ColumnName="EventOwner" />
-          <ScalarProperty Name="EventDay" ColumnName="EventDay" />
           <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+          <ScalarProperty Name="EventDay" ColumnName="EventDay" />
+          <ScalarProperty Name="EventOwner" ColumnName="EventOwner" />
+          <ScalarProperty Name="EventTitle" ColumnName="EventTitle" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="JobAdverts">
       <EntityTypeMapping TypeName="IlanTakipDbModel.JobAdverts">
         <MappingFragment StoreEntitySet="JobAdverts">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
-          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
-          <ScalarProperty Name="CityName" ColumnName="CityName" />
-          <ScalarProperty Name="OpenPosition" ColumnName="OpenPosition" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="EmployerId" ColumnName="EmployerId" />
-          <ScalarProperty Name="Employer_EmployersId" ColumnName="Employer_EmployersId" />
           <ScalarProperty Name="City_CityId" ColumnName="City_CityId" />
+          <ScalarProperty Name="Employer_EmployersId" ColumnName="Employer_EmployersId" />
+          <ScalarProperty Name="EmployerId" ColumnName="EmployerId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OpenPosition" ColumnName="OpenPosition" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="JobExperiences">
       <EntityTypeMapping TypeName="IlanTakipDbModel.JobExperiences">
         <MappingFragment StoreEntitySet="JobExperiences">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="WorkPlaceName" ColumnName="WorkPlaceName" />
-          <ScalarProperty Name="Position" ColumnName="Position" />
-          <ScalarProperty Name="StartYear" ColumnName="StartYear" />
-          <ScalarProperty Name="EndYear" ColumnName="EndYear" />
           <ScalarProperty Name="CvId" ColumnName="CvId" />
+          <ScalarProperty Name="EndYear" ColumnName="EndYear" />
+          <ScalarProperty Name="StartYear" ColumnName="StartYear" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="WorkPlaceName" ColumnName="WorkPlaceName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Languages">
       <EntityTypeMapping TypeName="IlanTakipDbModel.Languages">
         <MappingFragment StoreEntitySet="Languages">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="LanguageLevel" ColumnName="LanguageLevel" />
-          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
-          <ScalarProperty Name="ProgrammingLanguageLevel" ColumnName="ProgrammingLanguageLevel" />
-          <ScalarProperty Name="ProgrammingLanguageName" ColumnName="ProgrammingLanguageName" />
           <ScalarProperty Name="Cv_id" ColumnName="Cv_id" />
+          <ScalarProperty Name="ProgrammingLanguageName" ColumnName="ProgrammingLanguageName" />
+          <ScalarProperty Name="ProgrammingLanguageLevel" ColumnName="ProgrammingLanguageLevel" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+          <ScalarProperty Name="LanguageLevel" ColumnName="LanguageLevel" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Menu">
       <EntityTypeMapping TypeName="IlanTakipDbModel.Menu">
         <MappingFragment StoreEntitySet="Menu">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Auth" ColumnName="Auth" />
           <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Schools">
       <EntityTypeMapping TypeName="IlanTakipDbModel.Schools">
         <MappingFragment StoreEntitySet="Schools">
-          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
-          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
-          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
-          <ScalarProperty Name="StartYear" ColumnName="StartYear" />
-          <ScalarProperty Name="StartEnd" ColumnName="StartEnd" />
           <ScalarProperty Name="cv_id" ColumnName="cv_id" />
+          <ScalarProperty Name="StartEnd" ColumnName="StartEnd" />
+          <ScalarProperty Name="StartYear" ColumnName="StartYear" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SubMenu">
       <EntityTypeMapping TypeName="IlanTakipDbModel.SubMenu">
         <MappingFragment StoreEntitySet="SubMenu">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
-          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
           <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="SubMenuName" ColumnName="SubMenuName" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="IlanTakipDbModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="User">
-      <EntityTypeMapping TypeName="IlanTakipDbModel.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Authority" ColumnName="Authority" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

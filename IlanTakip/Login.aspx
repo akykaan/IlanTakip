@@ -6,91 +6,211 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
+    <title>Giriş Yap</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
-    <meta name="generator" content="Hugo 0.88.1" />
-    <meta name="theme-color" content="#7952b3" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#SignIn").click(function () {
-                $("#myToast").toast("show");
-            });
-        });
-    </script>
-    <title>Signin Template · Bootstrap v5.1</title>
-
-      <!-- Custom styles for this template -->
-    <link href="Ninestars\assets\vendor\bootstrap\css\signin.css" rel="stylesheet" />
-    <!-- Bootstrap core CSS -->
-    <link href="Ninestars/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-
-    <!-- Favicons -->
+    <!-- Vendor CSS Files -->
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet' />
     <style>
-        body{
-            justify-content:center;
-        }
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
+        .register {
+            background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+            margin-top: 3%;
+            padding: 3%;
         }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
+        .register-left {
+            text-align: center;
+            color: #fff;
+            margin-top: 4%;
+        }
+
+            .register-left input {
+                border: none;
+                border-radius: 1.5rem;
+                padding: 2%;
+                width: 60%;
+                background: #f8f9fa;
+                font-weight: bold;
+                color: #383d41;
+                margin-top: 30%;
+                margin-bottom: 3%;
+                cursor: pointer;
+            }
+
+        .register-right {
+            background: #f8f9fa;
+            border-top-left-radius: 10% 50%;
+            border-bottom-left-radius: 10% 50%;
+        }
+
+        .register-left img {
+            margin-top: 15%;
+            margin-bottom: 5%;
+            width: 25%;
+            -webkit-animation: mover 2s infinite alternate;
+            animation: mover 1s infinite alternate;
+        }
+
+        @-webkit-keyframes mover {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-20px);
             }
         }
+
+        @keyframes mover {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .register-left p {
+            font-weight: lighter;
+            padding: 12%;
+            margin-top: -9%;
+        }
+
+        .register .register-form {
+            padding: 10%;
+            margin-top: 10%;
+        }
+
+        .btnRegister {
+            float: right;
+            margin-top: 10%;
+            border: none;
+            border-radius: 1.5rem;
+            padding: 2%;
+            background: #0062cc;
+            color: #fff;
+            font-weight: 600;
+            width: 50%;
+            cursor: pointer;
+        }
+
+        .register .nav-tabs {
+            margin-top: 3%;
+            border: none;
+            background: #0062cc;
+            border-radius: 1.5rem;
+            width: 28%;
+            float: right;
+        }
+
+            .register .nav-tabs .nav-link {
+                padding: 2%;
+                height: 34px;
+                font-weight: 600;
+                color: #fff;
+                border-top-right-radius: 1.5rem;
+                border-bottom-right-radius: 1.5rem;
+            }
+
+                .register .nav-tabs .nav-link:hover {
+                    border: none;
+                }
+
+                .register .nav-tabs .nav-link.active {
+                    width: 100px;
+                    color: #0062cc;
+                    border: 2px solid #0062cc;
+                    border-top-left-radius: 1.5rem;
+                    border-bottom-left-radius: 1.5rem;
+                }
+
+        .register-heading {
+            text-align: center;
+            margin-top: 8%;
+            margin-bottom: -15%;
+            color: #495057;
+        }
     </style>
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
 
 </head>
 <body class="text-center">
     <form id="form1" runat="server">
-        <main class="form-signin">
-            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <div class="container register">
+            <div class="row">
+                <div class="col-md-3 register-left">
+                    <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+                    <h3>Hoş Geldiniz</h3>
 
-            <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" runat="server" />
-                <label for="floatingInput">Email address</label>
-            </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" runat="server" />
-                <label for="floatingPassword">Password</label>
+                </div>
+                <div class="col-md-9 register-right">
+                    <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Employee</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Employer</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Apply as a Candidate -->
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <h3 class="register-heading">İş arayan</h3>
+                            <div class="row register-form">
+                                <form action="/candidate" method="post">
+                                    <input type="text" name="login"/>
+	                                <input type="password" name="password"/>
+	                                <input type="submit" value="Submit"/>
+                                </form>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="emailCandidate" placeholder="Your Email *" value="" runat="server" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="passwordCandidate" placeholder="Password *" value="" runat="server" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <asp:Button ID="btnCandidate" class="btn btn-success"  Text="Giriş Yap" runat="server" OnClick="btnCandidate_Click1"/>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Apply as a Candidate -->
+
+                        <!-- Apply as a Employer -->
+                        <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <h3 class="register-heading">İş veren</h3>
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="emailEmployer" placeholder="Your Email *" value="" runat="server"  />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" id="passowordEmployer" placeholder="Password *" value=""  runat="server" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <asp:Button ID="btnEmployer" class="btn btn-success" Text="Giriş Yap" OnClick="btnEmployer_Click"  runat="server"/>
+                                   
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Apply as a Employer -->
+                        <asp:Label ID="labelError" runat="server" Text=""></asp:Label>
+                    </div>
+                </div>
             </div>
 
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me" />
-                    Remember me
-                </label>
-            </div>
-            <asp:Button class="w-100 btn btn-lg btn-primary" ID="SignIn" runat="server" Text="Giriş yap" OnClick="SignIn_Click" />
-            <asp:Button class="mt-2 w-100 btn btn-lg btn-primary" ID="RegisterButton" runat="server" Text="Üye Ol" OnClick="RegisterButton_Click" />
-            <asp:Button class="mt-2 w-100 btn" ID="ForgotPassword" runat="server" Text="Şifreni mi Unuttun?" OnClick="ForgotPassword_Click" />
-
-            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-            <asp:Label class="checkbox mb-3" ID="Label1" runat="server" Text=""></asp:Label>
-        </main>
+        </div>
     </form>
-    <!--  toast notification-->
-    <%--<div class="toast" id="myToast">
-        <div class="toast-header">
-            <strong class="me-auto"><i class="bi-gift-fill"></i>We miss you!</strong>
-            <small>10 mins ago</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-        </div>
-        <div class="toast-body">
-            
-        </div>
-    </div>--%>
-    <!--  toast notification-->
+
 </body>
 </html>

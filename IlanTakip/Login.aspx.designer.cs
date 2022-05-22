@@ -24,57 +24,66 @@ namespace IlanTakip
 		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
 		/// <summary>
-		/// floatingInput control.
+		/// emailCandidate control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl floatingInput;
+		protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl emailCandidate;
 
 		/// <summary>
-		/// floatingPassword control.
+		/// passwordCandidate control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlInputPassword floatingPassword;
+		protected global::System.Web.UI.HtmlControls.HtmlInputPassword passwordCandidate;
 
 		/// <summary>
-		/// SignIn control.
+		/// btnCandidate control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button SignIn;
+		protected global::System.Web.UI.WebControls.Button btnCandidate;
 
 		/// <summary>
-		/// RegisterButton control.
+		/// emailEmployer control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button RegisterButton;
+		protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl emailEmployer;
 
 		/// <summary>
-		/// ForgotPassword control.
+		/// passowordEmployer control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button ForgotPassword;
+		protected global::System.Web.UI.HtmlControls.HtmlInputPassword passowordEmployer;
 
 		/// <summary>
-		/// Label1 control.
+		/// btnEmployer control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label1;
+		protected global::System.Web.UI.WebControls.Button btnEmployer;
+
+		/// <summary>
+		/// labelError control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label labelError;
 	}
 }

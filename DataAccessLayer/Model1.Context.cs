@@ -38,6 +38,5 @@ namespace DataAccessLayer
         public virtual DbSet<Schools> Schools { get; set; }
         public virtual DbSet<SubMenu> SubMenu { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<User> User { get; set; }
     }
 }

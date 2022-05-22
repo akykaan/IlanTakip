@@ -15,6 +15,7 @@ namespace IlanTakip
 			if (Session["name"] == null)
 			{
 				UserNameSession.Text = "Giriş Yap";
+				Session["Authority"]="User";
 				LoginUsername.Visible = true;
 			}
 			else

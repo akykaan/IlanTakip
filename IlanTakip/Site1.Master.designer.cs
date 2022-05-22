@@ -24,6 +24,24 @@ namespace IlanTakip
 		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
 		/// <summary>
+		/// WebUserControl1 control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::IlanTakip.WebUserControl1 WebUserControl1;
+
+		/// <summary>
+		/// firstLi control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlAnchor firstLi;
+
+		/// <summary>
 		/// LoginUsername control.
 		/// </summary>
 		/// <remarks>

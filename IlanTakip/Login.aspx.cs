@@ -2,7 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,43 +14,13 @@ namespace IlanTakip
 	public partial class Login : System.Web.UI.Page
 	{
 		DataAccessLayer.IlanTakipDbEntities dbEntities = new DataAccessLayer.IlanTakipDbEntities();
-		DataAccessLayer.Candidates candidates = new DataAccessLayer.Candidates();
 		
 		protected void Page_Load()
 		{
 			
 		}
 
-		public void SignIn_Click(object sender, EventArgs e)
-		{
-			var user = dbEntities.User.FirstOrDefault(
-				x => x.Email == floatingInput.Value && x.Password.ToString() == floatingPassword.Value);
-
-			if (user==null)
-			{
-				Label1.Text = "hatalı şifre veya mail";
-			}
-			else
-			{
-				if (user.Authority == "admin")
-				{
-					Session.Add("name", user.Name);
-					Response.Redirect("Admin.aspx");
-				}
-				else if (user.Authority=="Candidate")
-				{
-					Session.Add("name", user.Name);
-					Response.Redirect("Candidate.aspx");
-				}
-				else
-				{
-					Session.Add("name", user.Name);
-					Response.Redirect("Employer.aspx");
-				}
-				
-			}
-		}
-
+	
 		protected void RegisterButton_Click(object sender, EventArgs e)
 		{
 			Response.Redirect("Register.aspx");
@@ -56,6 +29,52 @@ namespace IlanTakip
 		protected void ForgotPassword_Click(object sender, EventArgs e)
 		{
 			Response.Redirect("ForgotPassword.aspx");
+		}
+		
+		protected void btnEmployer_Click(object sender, EventArgs e)
+		{
+			var user = dbEntities.Employers.FirstOrDefault(
+				x => x.CompanyMailAddress == emailEmployer.Value && x.Password.ToString() == passowordEmployer.Value);
+
+			if (user == null)
+			{
+				labelError.Text = "hatalı şifre veya mail";
+			}
+			else
+			{
+				Session.Add("name", user.CompanyName);
+				Response.Redirect("EmployerPage.aspx");
+			}
+		}
+
+		protected void btnCandidate_Click1(object sender, EventArgs e)
+		{
+			//var user = dbEntities.Candidates.FirstOrDefault(
+			//	x => x.Email == emailCandidate.Value && x.Password.ToString() == passwordCandidate.Value);
+
+			//if (user == null)
+			//{
+			//	labelError.Text = "hatalı şifre veya mail";
+			//}
+			//else
+			//{
+			//	Session.Add("name", user.FirstName);
+			//	Session.Add("Authority", user.Authority);
+			//	Response.Redirect("Default.aspx");
+			//}
+
+			Candidate candidate = new Candidate();
+			using (var client =new HttpClient())
+			{
+				client.BaseAddress=new Uri("https://localhost:44321/");
+
+				var result = client.PostAsync("api/candidate",new StringContent(
+					new JavaScriptSerializer().Serialize(candidate),Encoding.UTF8,"application/json")).Result;
+
+
+
+			}
+
 		}
 	}
 }

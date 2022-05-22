@@ -16,7 +16,7 @@ namespace DataAccessLayer
     {
         public int Id { get; set; }
         public Nullable<int> MenuId { get; set; }
-        public string MenuName { get; set; }
+        public string SubMenuName { get; set; }
         public string Url { get; set; }
     
         public virtual Menu Menu { get; set; }

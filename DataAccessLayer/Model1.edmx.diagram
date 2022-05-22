@@ -4,31 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2d9a458f258746f291bc73d08b18b1d7" Name="Diagram1">
-        <EntityTypeShape EntityType="IlanTakipDbModel.C__MigrationHistory" Width="1.5" PointX="5.125" PointY="0.625" IsExpanded="false" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.Candidates" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.Cities" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.Cvs" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.Employers" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.Events" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.JobAdverts" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.JobExperiences" Width="1.5" PointX="7.5" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.Languages" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.Menu" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.Schools" Width="1.5" PointX="7.5" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.SubMenu" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IlanTakipDbModel.User" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <AssociationConnector Association="IlanTakipDbModel.FK_Candidates_ToUser" ManuallyRouted="false" />
-        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_Cvs_dbo_Candidates_Candidate_Id" ManuallyRouted="false" />
-        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_Events_dbo_Candidates_Candidate_Id" ManuallyRouted="false" />
-        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Cities_City_CityId" ManuallyRouted="false" />
-        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_JobExperiences_dbo_Cvs_CvId" ManuallyRouted="false" />
-        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_Languages_dbo_Cvs_Cv_id" ManuallyRouted="false" />
-        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_Schools_dbo_Cvs_cv_id" ManuallyRouted="false" />
-        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" ManuallyRouted="false" />
-        <AssociationConnector Association="IlanTakipDbModel.FK_Employers_User" ManuallyRouted="false" />
-        <AssociationConnector Association="IlanTakipDbModel.FK_SubMenu_ToMenu" ManuallyRouted="false" />
+      <Diagram DiagramId="2d9a458f258746f291bc73d08b18b1d7" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="IlanTakipDbModel.C__MigrationHistory" Width="1.5" PointX="9.75" PointY="5.75" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.Candidates" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.Cities" Width="1.5" PointX="7.75" PointY="1.75" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.Cvs" Width="1.5" PointX="3" PointY="7.25" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.Employers" Width="1.5" PointX="7.75" PointY="5.25" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.Events" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.JobAdverts" Width="1.5" PointX="10" PointY="1" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.JobExperiences" Width="1.5" PointX="5.25" PointY="7.5" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.Languages" Width="1.5" PointX="5.25" PointY="4.375" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.Menu" Width="1.5" PointX="7.75" PointY="9" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.Schools" Width="1.5" PointX="5.25" PointY="10.5" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.SubMenu" Width="1.5" PointX="10" PointY="8.875" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="10.75" />
+        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_Cvs_dbo_Candidates_Candidate_Id" />
+        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_Events_dbo_Candidates_Candidate_Id" />
+        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Cities_City_CityId" />
+        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_JobExperiences_dbo_Cvs_CvId" />
+        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_Languages_dbo_Cvs_Cv_id" />
+        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_Schools_dbo_Cvs_cv_id" />
+        <AssociationConnector Association="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" />
+        <AssociationConnector Association="IlanTakipDbModel.FK_SubMenu_ToMenu" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
