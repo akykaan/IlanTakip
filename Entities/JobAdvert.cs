@@ -19,5 +19,24 @@ namespace Entities
 
 		public int EmployerId { get; set; }
 		public Employer Employer { get; set; }
+		public List<JobAdvert> GetAllJobAdverts()
+		{
+			using (DataAccessLayer.IlanTakipDbEntities db=new DataAccessLayer.IlanTakipDbEntities())
+			{
+				var result = (from j in db.JobAdverts
+							  select new JobAdvert
+							  {
+								  JobDescription=j.JobDescription,
+								  JobTitle=j.JobTitle,
+								  CityName=j.CityName,
+								  OpenPosition=j.OpenPosition,
+								  IsActive=j.IsActive,
+								  Id=j.Id
+							  }).ToList();
+				return result;
+			}
+		}
+
+		
 	}
 }

@@ -1,36 +1,31 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="JobAdverts.aspx.cs" Inherits="IlanTakip.JobAdverts" %>
+﻿<%@ Page Async="true" Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="JobAdverts.aspx.cs" Inherits="IlanTakip.JobAdverts" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    burası iş ilan sayfası
-    
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+   
+    <h2 class="mt-5">İş ilanları</h2>
+
+    <asp:GridView ID="jobadvertGridView" runat="server" CssClass="mt-1" AutoGenerateColumns="false" AllowPaging="true" PageSize="2"
+        OnPageIndexChanging="jobadvertGridView_PageIndexChanging"
+        OnRowCommand="jobadvertGridView_RowCommand">
+        <Columns>
+            <asp:BoundField ItemStyle-Width="150px" DataField="JobDescription" HeaderText="İş Açıklaması"/>
+            <asp:BoundField ItemStyle-Width="150px" DataField="JobTitle" HeaderText="Ünvan"/>
+            <asp:BoundField ItemStyle-Width="150px" DataField="CityName" HeaderText="Şehir"/>
+            <asp:BoundField ItemStyle-Width="150px" DataField="OpenPosition" HeaderText="Açık pozisyon"/>
+            <asp:BoundField ItemStyle-Width="150px" DataField="IsActive" HeaderText="Açık/Aktif İlan"/>
+            <asp:TemplateField HeaderText="">
+                <ItemTemplate>
+                    <asp:Button ID="btnBasvuru"
+                        CommandArgument='<%# Eval("Id") %>' 
+                        CommandName="Basvuru" runat="server" Text="Başvuru Yap" 
+                        CssClass="btn btn-success"/>
+                </ItemTemplate>
+            </asp:TemplateField>
+             <%--<asp:ButtonField Text="Başvur"/>--%>
+            
+        </Columns>
+    </asp:GridView>
+
+
 </asp:Content>

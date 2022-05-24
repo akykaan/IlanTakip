@@ -24,22 +24,13 @@ namespace IlanTakip
 		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
 		/// <summary>
-		/// RegisterPageLoginButton control.
+		/// FirstName control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button RegisterPageLoginButton;
-
-		/// <summary>
-		/// FirtName control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlInputText FirtName;
+		protected global::System.Web.UI.HtmlControls.HtmlInputText FirstName;
 
 		/// <summary>
 		/// LastName control.
@@ -49,6 +40,15 @@ namespace IlanTakip
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.HtmlControls.HtmlInputText LastName;
+
+		/// <summary>
+		/// IdentityNumber control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlInputText IdentityNumber;
 
 		/// <summary>
 		/// Password control.
@@ -67,15 +67,6 @@ namespace IlanTakip
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.HtmlControls.HtmlInputText BirthYear;
-
-		/// <summary>
-		/// DropDownList1 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
 		/// <summary>
 		/// Email control.

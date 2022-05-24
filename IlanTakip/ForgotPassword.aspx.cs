@@ -18,18 +18,17 @@ namespace IlanTakip
 
 		protected void ResetPassword_Click(object sender, EventArgs e)
 		{
-			DataAccessLayer.User user = new DataAccessLayer.User();
+			DataAccessLayer.Candidates candidates = new DataAccessLayer.Candidates();
 			DataAccessLayer.IlanTakipDbEntities dbEntities = new DataAccessLayer.IlanTakipDbEntities();
 
-			var person = dbEntities.User.FirstOrDefault(
+			var person = dbEntities.Candidates.FirstOrDefault(
 				x => x.Email == Email.Value );
 
 			if (person != null)
 			{
 				
-				user.Password = Password.Value;
-				dbEntities.Entry(user).State = EntityState.Modified;
-				//dbEntities.Candidates.Attach(candidates);
+				candidates.Password =Convert.ToInt32(Password.Value);
+				dbEntities.Entry(candidates).State = EntityState.Modified;
 				dbEntities.SaveChanges();
 				
 			}

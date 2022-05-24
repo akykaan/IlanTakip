@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="IlanTakipDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="__MigrationHistory">
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobAdvertId" Type="int" />
+    <Property Name="CandidateId" Type="int" />
+  </EntityType>
+  <EntityType Name="C__MigrationHistory">
     <Key>
       <PropertyRef Name="MigrationId" />
       <PropertyRef Name="ContextKey" />
@@ -15,10 +23,15 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdentityNumber" Type="nvarchar(max)" />
+    <Property Name="IdentityNumber" Type="nvarchar" MaxLength="11" />
     <Property Name="BirthYear" Type="int" Nullable="false" />
     <Property Name="CvId" Type="int" Nullable="false" />
     <Property Name="UserId" Type="int" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="int" Nullable="false" />
+    <Property Name="Authority" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Cities">
     <Key>
@@ -43,8 +56,11 @@
     </Key>
     <Property Name="EmployersId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Phone" Type="int" Nullable="false" />
-    <Property Name="CompanyName" Type="nvarchar(max)" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
     <Property Name="UserId" Type="int" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="CompanyMailAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="int" />
   </EntityType>
   <EntityType Name="Events">
     <Key>
@@ -98,6 +114,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MenuName" Type="varchar" MaxLength="50" />
+    <Property Name="Auth" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Schools">
     <Key>
@@ -116,7 +133,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MenuId" Type="int" />
-    <Property Name="MenuName" Type="varchar" MaxLength="50" />
+    <Property Name="SubMenuName" Type="varchar" MaxLength="50" />
     <Property Name="Url" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -129,28 +146,6 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="50" />
-    <Property Name="Password" Type="varchar" MaxLength="8" />
-    <Property Name="Email" Type="varchar" MaxLength="50" />
-    <Property Name="Authority" Type="varchar" MaxLength="50" />
-  </EntityType>
-  <Association Name="FK_Candidates_ToUser">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Candidates">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_dbo_Cvs_dbo_Candidates_Candidate_Id">
     <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1" />
     <End Role="Cvs" Type="Self.Cvs" Multiplicity="*" />
@@ -237,18 +232,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Employers_User">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Employers" Type="Self.Employers" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Employers">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_SubMenu_ToMenu">
     <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
     <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="*" />
@@ -262,7 +245,8 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="IlanTakipDbModelStoreContainer">
-    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Applications" EntityType="Self.Applications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Candidates" EntityType="Self.Candidates" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Cvs" EntityType="Self.Cvs" Schema="dbo" store:Type="Tables" />
@@ -275,11 +259,6 @@
     <EntitySet Name="Schools" EntityType="Self.Schools" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SubMenu" EntityType="Self.SubMenu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Candidates_ToUser" Association="Self.FK_Candidates_ToUser">
-      <End Role="User" EntitySet="User" />
-      <End Role="Candidates" EntitySet="Candidates" />
-    </AssociationSet>
     <AssociationSet Name="FK_dbo_Cvs_dbo_Candidates_Candidate_Id" Association="Self.FK_dbo_Cvs_dbo_Candidates_Candidate_Id">
       <End Role="Candidates" EntitySet="Candidates" />
       <End Role="Cvs" EntitySet="Cvs" />
@@ -307,10 +286,6 @@
     <AssociationSet Name="FK_dbo_Schools_dbo_Cvs_cv_id" Association="Self.FK_dbo_Schools_dbo_Cvs_cv_id">
       <End Role="Cvs" EntitySet="Cvs" />
       <End Role="Schools" EntitySet="Schools" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Employers_User" Association="Self.FK_Employers_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Employers" EntitySet="Employers" />
     </AssociationSet>
     <AssociationSet Name="FK_SubMenu_ToMenu" Association="Self.FK_SubMenu_ToMenu">
       <End Role="Menu" EntitySet="Menu" />

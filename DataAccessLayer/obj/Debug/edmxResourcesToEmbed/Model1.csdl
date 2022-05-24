@@ -1,27 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="IlanTakipDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="IlanTakipDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="IlanTakipDbModel.C__MigrationHistory" />
+    <EntitySet Name="Candidates" EntityType="IlanTakipDbModel.Candidates" />
+    <EntitySet Name="Cities" EntityType="IlanTakipDbModel.Cities" />
+    <EntitySet Name="Cvs" EntityType="IlanTakipDbModel.Cvs" />
+    <EntitySet Name="Employers" EntityType="IlanTakipDbModel.Employers" />
+    <EntitySet Name="Events" EntityType="IlanTakipDbModel.Events" />
+    <EntitySet Name="JobAdverts" EntityType="IlanTakipDbModel.JobAdverts" />
+    <EntitySet Name="JobExperiences" EntityType="IlanTakipDbModel.JobExperiences" />
+    <EntitySet Name="Languages" EntityType="IlanTakipDbModel.Languages" />
+    <EntitySet Name="Menu" EntityType="IlanTakipDbModel.Menu" />
+    <EntitySet Name="Schools" EntityType="IlanTakipDbModel.Schools" />
+    <EntitySet Name="SubMenu" EntityType="IlanTakipDbModel.SubMenu" />
+    <EntitySet Name="sysdiagrams" EntityType="IlanTakipDbModel.sysdiagrams" />
+    <AssociationSet Name="FK_dbo_Cvs_dbo_Candidates_Candidate_Id" Association="IlanTakipDbModel.FK_dbo_Cvs_dbo_Candidates_Candidate_Id">
+      <End Role="Candidates" EntitySet="Candidates" />
+      <End Role="Cvs" EntitySet="Cvs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Events_dbo_Candidates_Candidate_Id" Association="IlanTakipDbModel.FK_dbo_Events_dbo_Candidates_Candidate_Id">
+      <End Role="Candidates" EntitySet="Candidates" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_JobAdverts_dbo_Cities_City_CityId" Association="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Cities_City_CityId">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="JobAdverts" EntitySet="JobAdverts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_JobExperiences_dbo_Cvs_CvId" Association="IlanTakipDbModel.FK_dbo_JobExperiences_dbo_Cvs_CvId">
+      <End Role="Cvs" EntitySet="Cvs" />
+      <End Role="JobExperiences" EntitySet="JobExperiences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Languages_dbo_Cvs_Cv_id" Association="IlanTakipDbModel.FK_dbo_Languages_dbo_Cvs_Cv_id">
+      <End Role="Cvs" EntitySet="Cvs" />
+      <End Role="Languages" EntitySet="Languages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Schools_dbo_Cvs_cv_id" Association="IlanTakipDbModel.FK_dbo_Schools_dbo_Cvs_cv_id">
+      <End Role="Cvs" EntitySet="Cvs" />
+      <End Role="Schools" EntitySet="Schools" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" Association="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId">
+      <End Role="Employers" EntitySet="Employers" />
+      <End Role="JobAdverts" EntitySet="JobAdverts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubMenu_ToMenu" Association="IlanTakipDbModel.FK_SubMenu_ToMenu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="SubMenu" EntitySet="SubMenu" />
+    </AssociationSet>
+    <EntitySet Name="Applications" EntityType="IlanTakipDbModel.Applications" />
+  </EntityContainer>
   <EntityType Name="C__MigrationHistory">
     <Key>
       <PropertyRef Name="MigrationId" />
       <PropertyRef Name="ContextKey" />
     </Key>
-    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Candidates">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdentityNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdentityNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
     <Property Name="BirthYear" Type="Int32" Nullable="false" />
     <Property Name="CvId" Type="Int32" Nullable="false" />
     <Property Name="UserId" Type="Int32" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Candidates_ToUser" FromRole="Candidates" ToRole="User" />
-    <NavigationProperty Name="Cvs" Relationship="Self.FK_dbo_Cvs_dbo_Candidates_Candidate_Id" FromRole="Candidates" ToRole="Cvs" />
-    <NavigationProperty Name="Events" Relationship="Self.FK_dbo_Events_dbo_Candidates_Candidate_Id" FromRole="Candidates" ToRole="Events" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="Int32" Nullable="false" />
+    <Property Name="Authority" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Cvs" Relationship="IlanTakipDbModel.FK_dbo_Cvs_dbo_Candidates_Candidate_Id" FromRole="Candidates" ToRole="Cvs" />
+    <NavigationProperty Name="Events" Relationship="IlanTakipDbModel.FK_dbo_Events_dbo_Candidates_Candidate_Id" FromRole="Candidates" ToRole="Events" />
   </EntityType>
   <EntityType Name="Cities">
     <Key>
@@ -29,7 +81,7 @@
     </Key>
     <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="JobAdverts" Relationship="Self.FK_dbo_JobAdverts_dbo_Cities_City_CityId" FromRole="Cities" ToRole="JobAdverts" />
+    <NavigationProperty Name="JobAdverts" Relationship="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Cities_City_CityId" FromRole="Cities" ToRole="JobAdverts" />
   </EntityType>
   <EntityType Name="Cvs">
     <Key>
@@ -40,10 +92,10 @@
     <Property Name="CoverLetter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
     <Property Name="Candidate_Id" Type="Int32" />
-    <NavigationProperty Name="Candidates" Relationship="Self.FK_dbo_Cvs_dbo_Candidates_Candidate_Id" FromRole="Cvs" ToRole="Candidates" />
-    <NavigationProperty Name="JobExperiences" Relationship="Self.FK_dbo_JobExperiences_dbo_Cvs_CvId" FromRole="Cvs" ToRole="JobExperiences" />
-    <NavigationProperty Name="Languages" Relationship="Self.FK_dbo_Languages_dbo_Cvs_Cv_id" FromRole="Cvs" ToRole="Languages" />
-    <NavigationProperty Name="Schools" Relationship="Self.FK_dbo_Schools_dbo_Cvs_cv_id" FromRole="Cvs" ToRole="Schools" />
+    <NavigationProperty Name="Candidates" Relationship="IlanTakipDbModel.FK_dbo_Cvs_dbo_Candidates_Candidate_Id" FromRole="Cvs" ToRole="Candidates" />
+    <NavigationProperty Name="JobExperiences" Relationship="IlanTakipDbModel.FK_dbo_JobExperiences_dbo_Cvs_CvId" FromRole="Cvs" ToRole="JobExperiences" />
+    <NavigationProperty Name="Languages" Relationship="IlanTakipDbModel.FK_dbo_Languages_dbo_Cvs_Cv_id" FromRole="Cvs" ToRole="Languages" />
+    <NavigationProperty Name="Schools" Relationship="IlanTakipDbModel.FK_dbo_Schools_dbo_Cvs_cv_id" FromRole="Cvs" ToRole="Schools" />
   </EntityType>
   <EntityType Name="Employers">
     <Key>
@@ -51,10 +103,12 @@
     </Key>
     <Property Name="EmployersId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Phone" Type="Int32" Nullable="false" />
-    <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="UserId" Type="Int32" />
-    <NavigationProperty Name="JobAdverts" Relationship="Self.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" FromRole="Employers" ToRole="JobAdverts" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Employers_User" FromRole="Employers" ToRole="User" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyMailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="Int32" />
+    <NavigationProperty Name="JobAdverts" Relationship="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" FromRole="Employers" ToRole="JobAdverts" />
   </EntityType>
   <EntityType Name="Events">
     <Key>
@@ -65,7 +119,7 @@
     <Property Name="EventOwner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="EventDay" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Candidate_Id" Type="Int32" />
-    <NavigationProperty Name="Candidates" Relationship="Self.FK_dbo_Events_dbo_Candidates_Candidate_Id" FromRole="Events" ToRole="Candidates" />
+    <NavigationProperty Name="Candidates" Relationship="IlanTakipDbModel.FK_dbo_Events_dbo_Candidates_Candidate_Id" FromRole="Events" ToRole="Candidates" />
   </EntityType>
   <EntityType Name="JobAdverts">
     <Key>
@@ -80,8 +134,8 @@
     <Property Name="EmployerId" Type="Int32" Nullable="false" />
     <Property Name="Employer_EmployersId" Type="Int32" />
     <Property Name="City_CityId" Type="Int32" />
-    <NavigationProperty Name="Cities" Relationship="Self.FK_dbo_JobAdverts_dbo_Cities_City_CityId" FromRole="JobAdverts" ToRole="Cities" />
-    <NavigationProperty Name="Employers" Relationship="Self.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" FromRole="JobAdverts" ToRole="Employers" />
+    <NavigationProperty Name="Cities" Relationship="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Cities_City_CityId" FromRole="JobAdverts" ToRole="Cities" />
+    <NavigationProperty Name="Employers" Relationship="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" FromRole="JobAdverts" ToRole="Employers" />
   </EntityType>
   <EntityType Name="JobExperiences">
     <Key>
@@ -93,7 +147,7 @@
     <Property Name="StartYear" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="EndYear" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="CvId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Cvs" Relationship="Self.FK_dbo_JobExperiences_dbo_Cvs_CvId" FromRole="JobExperiences" ToRole="Cvs" />
+    <NavigationProperty Name="Cvs" Relationship="IlanTakipDbModel.FK_dbo_JobExperiences_dbo_Cvs_CvId" FromRole="JobExperiences" ToRole="Cvs" />
   </EntityType>
   <EntityType Name="Languages">
     <Key>
@@ -105,7 +159,7 @@
     <Property Name="ProgrammingLanguageLevel" Type="Int32" Nullable="false" />
     <Property Name="ProgrammingLanguageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Cv_id" Type="Int32" />
-    <NavigationProperty Name="Cvs" Relationship="Self.FK_dbo_Languages_dbo_Cvs_Cv_id" FromRole="Languages" ToRole="Cvs" />
+    <NavigationProperty Name="Cvs" Relationship="IlanTakipDbModel.FK_dbo_Languages_dbo_Cvs_Cv_id" FromRole="Languages" ToRole="Cvs" />
   </EntityType>
   <EntityType Name="Menu">
     <Key>
@@ -113,7 +167,8 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="SubMenu" Relationship="Self.FK_SubMenu_ToMenu" FromRole="Menu" ToRole="SubMenu" />
+    <Property Name="Auth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SubMenu" Relationship="IlanTakipDbModel.FK_SubMenu_ToMenu" FromRole="Menu" ToRole="SubMenu" />
   </EntityType>
   <EntityType Name="Schools">
     <Key>
@@ -125,7 +180,7 @@
     <Property Name="StartYear" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="StartEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="cv_id" Type="Int32" />
-    <NavigationProperty Name="Cvs" Relationship="Self.FK_dbo_Schools_dbo_Cvs_cv_id" FromRole="Schools" ToRole="Cvs" />
+    <NavigationProperty Name="Cvs" Relationship="IlanTakipDbModel.FK_dbo_Schools_dbo_Cvs_cv_id" FromRole="Schools" ToRole="Cvs" />
   </EntityType>
   <EntityType Name="SubMenu">
     <Key>
@@ -133,47 +188,23 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MenuId" Type="Int32" />
-    <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubMenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Menu" Relationship="Self.FK_SubMenu_ToMenu" FromRole="SubMenu" ToRole="Menu" />
+    <NavigationProperty Name="Menu" Relationship="IlanTakipDbModel.FK_SubMenu_ToMenu" FromRole="SubMenu" ToRole="Menu" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
     </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="principal_id" Type="Int32" Nullable="false" />
     <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Authority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Candidates" Relationship="Self.FK_Candidates_ToUser" FromRole="User" ToRole="Candidates" />
-    <NavigationProperty Name="Employers" Relationship="Self.FK_Employers_User" FromRole="User" ToRole="Employers" />
-  </EntityType>
-  <Association Name="FK_Candidates_ToUser">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Candidates" Type="Self.Candidates" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Candidates">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_dbo_Cvs_dbo_Candidates_Candidate_Id">
-    <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1" />
-    <End Role="Cvs" Type="Self.Cvs" Multiplicity="*" />
+    <End Type="IlanTakipDbModel.Candidates" Role="Candidates" Multiplicity="0..1" />
+    <End Type="IlanTakipDbModel.Cvs" Role="Cvs" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Candidates">
         <PropertyRef Name="Id" />
@@ -184,8 +215,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_Events_dbo_Candidates_Candidate_Id">
-    <End Role="Candidates" Type="Self.Candidates" Multiplicity="0..1" />
-    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <End Type="IlanTakipDbModel.Candidates" Role="Candidates" Multiplicity="0..1" />
+    <End Type="IlanTakipDbModel.Events" Role="Events" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Candidates">
         <PropertyRef Name="Id" />
@@ -196,8 +227,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_JobAdverts_dbo_Cities_City_CityId">
-    <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
-    <End Role="JobAdverts" Type="Self.JobAdverts" Multiplicity="*" />
+    <End Type="IlanTakipDbModel.Cities" Role="Cities" Multiplicity="0..1" />
+    <End Type="IlanTakipDbModel.JobAdverts" Role="JobAdverts" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cities">
         <PropertyRef Name="CityId" />
@@ -208,10 +239,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_JobExperiences_dbo_Cvs_CvId">
-    <End Role="Cvs" Type="Self.Cvs" Multiplicity="1">
+    <End Type="IlanTakipDbModel.Cvs" Role="Cvs" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="JobExperiences" Type="Self.JobExperiences" Multiplicity="*" />
+    <End Type="IlanTakipDbModel.JobExperiences" Role="JobExperiences" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cvs">
         <PropertyRef Name="id" />
@@ -222,8 +253,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_Languages_dbo_Cvs_Cv_id">
-    <End Role="Cvs" Type="Self.Cvs" Multiplicity="0..1" />
-    <End Role="Languages" Type="Self.Languages" Multiplicity="*" />
+    <End Type="IlanTakipDbModel.Cvs" Role="Cvs" Multiplicity="0..1" />
+    <End Type="IlanTakipDbModel.Languages" Role="Languages" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cvs">
         <PropertyRef Name="id" />
@@ -234,8 +265,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_Schools_dbo_Cvs_cv_id">
-    <End Role="Cvs" Type="Self.Cvs" Multiplicity="0..1" />
-    <End Role="Schools" Type="Self.Schools" Multiplicity="*" />
+    <End Type="IlanTakipDbModel.Cvs" Role="Cvs" Multiplicity="0..1" />
+    <End Type="IlanTakipDbModel.Schools" Role="Schools" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cvs">
         <PropertyRef Name="id" />
@@ -246,8 +277,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId">
-    <End Role="Employers" Type="Self.Employers" Multiplicity="0..1" />
-    <End Role="JobAdverts" Type="Self.JobAdverts" Multiplicity="*" />
+    <End Type="IlanTakipDbModel.Employers" Role="Employers" Multiplicity="0..1" />
+    <End Type="IlanTakipDbModel.JobAdverts" Role="JobAdverts" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employers">
         <PropertyRef Name="EmployersId" />
@@ -257,21 +288,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Employers_User">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
-    <End Role="Employers" Type="Self.Employers" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Employers">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_SubMenu_ToMenu">
-    <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
-    <End Role="SubMenu" Type="Self.SubMenu" Multiplicity="*" />
+    <End Type="IlanTakipDbModel.Menu" Role="Menu" Multiplicity="0..1" />
+    <End Type="IlanTakipDbModel.SubMenu" Role="SubMenu" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Menu">
         <PropertyRef Name="Id" />
@@ -281,60 +300,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="IlanTakipDbEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
-    <EntitySet Name="Candidates" EntityType="Self.Candidates" />
-    <EntitySet Name="Cities" EntityType="Self.Cities" />
-    <EntitySet Name="Cvs" EntityType="Self.Cvs" />
-    <EntitySet Name="Employers" EntityType="Self.Employers" />
-    <EntitySet Name="Events" EntityType="Self.Events" />
-    <EntitySet Name="JobAdverts" EntityType="Self.JobAdverts" />
-    <EntitySet Name="JobExperiences" EntityType="Self.JobExperiences" />
-    <EntitySet Name="Languages" EntityType="Self.Languages" />
-    <EntitySet Name="Menu" EntityType="Self.Menu" />
-    <EntitySet Name="Schools" EntityType="Self.Schools" />
-    <EntitySet Name="SubMenu" EntityType="Self.SubMenu" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="User" EntityType="Self.User" />
-    <AssociationSet Name="FK_Candidates_ToUser" Association="Self.FK_Candidates_ToUser">
-      <End Role="User" EntitySet="User" />
-      <End Role="Candidates" EntitySet="Candidates" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_Cvs_dbo_Candidates_Candidate_Id" Association="Self.FK_dbo_Cvs_dbo_Candidates_Candidate_Id">
-      <End Role="Candidates" EntitySet="Candidates" />
-      <End Role="Cvs" EntitySet="Cvs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_Events_dbo_Candidates_Candidate_Id" Association="Self.FK_dbo_Events_dbo_Candidates_Candidate_Id">
-      <End Role="Candidates" EntitySet="Candidates" />
-      <End Role="Events" EntitySet="Events" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_JobAdverts_dbo_Cities_City_CityId" Association="Self.FK_dbo_JobAdverts_dbo_Cities_City_CityId">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="JobAdverts" EntitySet="JobAdverts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_JobExperiences_dbo_Cvs_CvId" Association="Self.FK_dbo_JobExperiences_dbo_Cvs_CvId">
-      <End Role="Cvs" EntitySet="Cvs" />
-      <End Role="JobExperiences" EntitySet="JobExperiences" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_Languages_dbo_Cvs_Cv_id" Association="Self.FK_dbo_Languages_dbo_Cvs_Cv_id">
-      <End Role="Cvs" EntitySet="Cvs" />
-      <End Role="Languages" EntitySet="Languages" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_Schools_dbo_Cvs_cv_id" Association="Self.FK_dbo_Schools_dbo_Cvs_cv_id">
-      <End Role="Cvs" EntitySet="Cvs" />
-      <End Role="Schools" EntitySet="Schools" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" Association="Self.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId">
-      <End Role="Employers" EntitySet="Employers" />
-      <End Role="JobAdverts" EntitySet="JobAdverts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Employers_User" Association="Self.FK_Employers_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Employers" EntitySet="Employers" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SubMenu_ToMenu" Association="Self.FK_SubMenu_ToMenu">
-      <End Role="Menu" EntitySet="Menu" />
-      <End Role="SubMenu" EntitySet="SubMenu" />
-    </AssociationSet>
-  </EntityContainer>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="JobAdvertId" Type="Int32" />
+    <Property Name="CandidateId" Type="Int32" />
+  </EntityType>
 </Schema>
