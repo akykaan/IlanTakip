@@ -26,6 +26,7 @@
         <AssociationConnector Association="IlanTakipDbModel.FK_dbo_Schools_dbo_Cvs_cv_id" />
         <AssociationConnector Association="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" />
         <AssociationConnector Association="IlanTakipDbModel.FK_SubMenu_ToMenu" />
+        <EntityTypeShape EntityType="IlanTakipDbModel.Applications" Width="1.5" PointX="2.25" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

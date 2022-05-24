@@ -2,36 +2,30 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%--<script src="Scripts/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript">
-        function getProducts() {
-            $.ajax({
-                type: "GET",
-                url:"https://localhost:44321/api/candidate",
-                contentType: "json",
-                dataType: "json",
-                success: function (data) {
-                    console.log("girdi:", data);
-                    $.each(data, function (key, val) {
-                        var jsonData = JSON.stringify(val);
-                        var objData = $.parseJSON(jsonData);
-                        var row = '<td>' + objData.FirstName + '</td><td>' + objData.LastName+ '</td>';
-                        $('<tr/>', { html: row })  // Append the name.
-                            .appendTo($('#products'));
-                    });
-                }
-            })
-        }
+   
+    <h2 class="mt-5">İş ilanları</h2>
 
-        $(document).ready(getProducts);
-    </script>--%>
-    <h2>Candidates</h2>
-
-    <asp:GridView ID="candidateGridView" runat="server" CssClass="mt-5">
+    <asp:GridView ID="jobadvertGridView" runat="server" CssClass="mt-1" AutoGenerateColumns="false" AllowPaging="true" PageSize="2"
+        OnPageIndexChanging="jobadvertGridView_PageIndexChanging"
+        OnRowCommand="jobadvertGridView_RowCommand">
         <Columns>
-            <%--<asp:BoundField ItemStyle-Width="150px" DataField="FirstName" HeaderText="First Name2"/>
-            <asp:BoundField ItemStyle-Width="150px" DataField="LastName" HeaderText="Last Name2"/>--%>
+            <asp:BoundField ItemStyle-Width="150px" DataField="JobDescription" HeaderText="İş Açıklaması"/>
+            <asp:BoundField ItemStyle-Width="150px" DataField="JobTitle" HeaderText="Ünvan"/>
+            <asp:BoundField ItemStyle-Width="150px" DataField="CityName" HeaderText="Şehir"/>
+            <asp:BoundField ItemStyle-Width="150px" DataField="OpenPosition" HeaderText="Açık pozisyon"/>
+            <asp:BoundField ItemStyle-Width="150px" DataField="IsActive" HeaderText="Açık/Aktif İlan"/>
+            <asp:TemplateField HeaderText="">
+                <ItemTemplate>
+                    <asp:Button ID="btnBasvuru"
+                        CommandArgument='<%# Eval("Id") %>' 
+                        CommandName="Basvuru" runat="server" Text="Başvuru Yap" 
+                        CssClass="btn btn-success"/>
+                </ItemTemplate>
+            </asp:TemplateField>
+             <%--<asp:ButtonField Text="Başvur"/>--%>
+            
         </Columns>
     </asp:GridView>
+
 
 </asp:Content>

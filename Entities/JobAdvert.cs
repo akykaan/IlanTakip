@@ -26,16 +26,17 @@ namespace Entities
 				var result = (from j in db.JobAdverts
 							  select new JobAdvert
 							  {
+								  JobDescription=j.JobDescription,
+								  JobTitle=j.JobTitle,
 								  CityName=j.CityName,
 								  OpenPosition=j.OpenPosition,
-								  JobTitle=j.JobTitle,
-								  JobDescription=j.JobDescription,
-								  Id=j.Id,
 								  IsActive=j.IsActive,
-								  EmployerId=j.EmployerId
+								  Id=j.Id
 							  }).ToList();
 				return result;
 			}
 		}
+
+		
 	}
 }

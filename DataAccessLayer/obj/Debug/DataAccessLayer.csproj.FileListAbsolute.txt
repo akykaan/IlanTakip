@@ -9,4 +9,3 @@ C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\obj\Debug\DataAccessLayer.
 C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
-C:\Users\kaana\source\repos\IlanTakip\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache

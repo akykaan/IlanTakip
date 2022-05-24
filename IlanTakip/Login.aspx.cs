@@ -49,31 +49,32 @@ namespace IlanTakip
 
 		protected void btnCandidate_Click1(object sender, EventArgs e)
 		{
-			//var user = dbEntities.Candidates.FirstOrDefault(
-			//	x => x.Email == emailCandidate.Value && x.Password.ToString() == passwordCandidate.Value);
+			var user = dbEntities.Candidates.FirstOrDefault(
+				x => x.Email == emailCandidate.Value && x.Password.ToString() == passwordCandidate.Value);
 
-			//if (user == null)
-			//{
-			//	labelError.Text = "hatalı şifre veya mail";
-			//}
-			//else
-			//{
-			//	Session.Add("name", user.FirstName);
-			//	Session.Add("Authority", user.Authority);
-			//	Response.Redirect("Default.aspx");
-			//}
-
-			Candidate candidate = new Candidate();
-			using (var client =new HttpClient())
+			if (user == null)
 			{
-				client.BaseAddress=new Uri("https://localhost:44321/");
-
-				var result = client.PostAsync("api/candidate",new StringContent(
-					new JavaScriptSerializer().Serialize(candidate),Encoding.UTF8,"application/json")).Result;
-
-
-
+				labelError.Text = "hatalı şifre veya mail";
 			}
+			else
+			{
+				Session.Add("name", user.FirstName);
+				Session.Add("id", user.Id);
+				Session.Add("Authority", user.Authority);
+				Response.Redirect("Default.aspx");
+			}
+
+			//Candidate candidate = new Candidate();
+			//using (var client =new HttpClient())
+			//{
+			//	client.BaseAddress=new Uri("https://localhost:44321/");
+
+			//	var result = client.PostAsync("api/candidate",new StringContent(
+			//		new JavaScriptSerializer().Serialize(candidate),Encoding.UTF8,"application/json")).Result;
+
+
+
+			//}
 
 		}
 	}

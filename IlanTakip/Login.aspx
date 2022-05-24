@@ -163,11 +163,6 @@
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <h3 class="register-heading">İş arayan</h3>
                             <div class="row register-form">
-                                <form action="/candidate" method="post">
-                                    <input type="text" name="login"/>
-	                                <input type="password" name="password"/>
-	                                <input type="submit" value="Submit"/>
-                                </form>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <input type="email" class="form-control" id="emailCandidate" placeholder="Your Email *" value="" runat="server" />

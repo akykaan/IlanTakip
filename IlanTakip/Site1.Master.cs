@@ -14,14 +14,12 @@ namespace IlanTakip
 
 			if (Session["name"] == null)
 			{
-				UserNameSession.Text = "Giriş Yap";
+				UserNameSession.Text = "";
 				Session["Authority"]="User";
-				LoginUsername.Visible = true;
 			}
 			else
 			{
 				UserNameSession.Text = Session["name"].ToString();
-				LoginUsername.Visible = false;
 			}
 		}
 	}

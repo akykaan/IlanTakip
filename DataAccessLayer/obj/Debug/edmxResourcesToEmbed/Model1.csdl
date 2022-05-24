@@ -46,6 +46,7 @@
       <End Role="Menu" EntitySet="Menu" />
       <End Role="SubMenu" EntitySet="SubMenu" />
     </AssociationSet>
+    <EntitySet Name="Applications" EntityType="IlanTakipDbModel.Applications" />
   </EntityContainer>
   <EntityType Name="C__MigrationHistory">
     <Key>
@@ -299,4 +300,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="JobAdvertId" Type="Int32" />
+    <Property Name="CandidateId" Type="Int32" />
+  </EntityType>
 </Schema>
