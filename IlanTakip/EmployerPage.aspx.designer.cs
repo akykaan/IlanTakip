@@ -11,52 +11,61 @@ namespace IlanTakip
 {
 
 
-	public partial class Site1
+	public partial class EmployerPage
 	{
 
 		/// <summary>
-		/// form1 control.
+		/// validationJobTitle control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+		protected global::System.Web.UI.HtmlControls.HtmlInputText validationJobTitle;
 
 		/// <summary>
-		/// WebUserControl1 control.
+		/// validationJobDescription control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::IlanTakip.WebUserControl1 WebUserControl1;
+		protected global::System.Web.UI.HtmlControls.HtmlInputText validationJobDescription;
 
 		/// <summary>
-		/// UserNameSession control.
+		/// validationOpenPosition control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label UserNameSession;
+		protected global::System.Web.UI.HtmlControls.HtmlInputText validationOpenPosition;
 
 		/// <summary>
-		/// Logout control.
+		/// validationCustom04 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button Logout;
+		protected global::System.Web.UI.HtmlControls.HtmlSelect validationCustom04;
 
 		/// <summary>
-		/// ContentPlaceHolder1 control.
+		/// jobAdvertAdd control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+		protected global::System.Web.UI.WebControls.Button jobAdvertAdd;
+
+		/// <summary>
+		/// LabelMessage control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label LabelMessage;
 	}
 }

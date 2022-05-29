@@ -18,14 +18,13 @@ namespace IlanTakip
 	{
 		protected async void Page_Load(object sender, EventArgs e)
 		{
-			//string apiUrl = "https://localhost:44321/api";
-			//WebClient client = new WebClient();
-			//client.Headers["Content-type"] = "application/json";
-			//client.Encoding = Encoding.UTF8;
-			//string json = client.DownloadString(apiUrl + "/jobadverts");
-			//jobadvertGridView.DataSource = (new JavaScriptSerializer()).Deserialize<List<JobAdvert>>(json);
-			//jobadvertGridView.DataBind();
-
+			if (Session["name"] == null)
+			{
+				labelAlert.Text = "Başvuru yapabilmek ve ilanları görebilmek için giriş yapınız.";
+				jobadvertGridView.Visible = false;
+			}
+			else
+				labelAlert.Text = "";
 			if (!IsPostBack)
 			{
 				using (var client = new HttpClient())

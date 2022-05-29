@@ -28,9 +28,7 @@
             <div class="portfolio-info">
               <h3>İş yeri bilgileri</h3>
               <ul>
-                <li runat="server" id="title"><strong>Category</strong>: Web design</li>
-                <li runat="server" id="city"><strong>Client</strong>: ASU Company</li>
-                <li runat="server" id="description"><strong>Project date</strong>: 01 March, 2020</li>
+                  <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
               </ul>
             </div>
           </div>

@@ -66,6 +66,7 @@
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="CompanyMailAddress" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="int" />
+          <Property Name="Authority" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Events">
           <Key>
@@ -410,6 +411,7 @@
           <Property Name="CompanyMailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="Int32" />
           <NavigationProperty Name="JobAdverts" Relationship="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" FromRole="Employers" ToRole="JobAdverts" />
+          <Property Name="Authority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Events">
           <Key>
@@ -663,6 +665,7 @@
           <EntitySetMapping Name="Employers">
             <EntityTypeMapping TypeName="IlanTakipDbModel.Employers">
               <MappingFragment StoreEntitySet="Employers">
+                <ScalarProperty Name="Authority" ColumnName="Authority" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="CompanyMailAddress" ColumnName="CompanyMailAddress" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

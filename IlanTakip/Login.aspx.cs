@@ -43,7 +43,9 @@ namespace IlanTakip
 			else
 			{
 				Session.Add("name", user.CompanyName);
-				Response.Redirect("EmployerPage.aspx");
+				Session.Add("id", user.EmployersId);
+				Session.Add("Authority", user.Authority);
+				Response.Redirect("Home");
 			}
 		}
 
@@ -61,21 +63,8 @@ namespace IlanTakip
 				Session.Add("name", user.FirstName);
 				Session.Add("id", user.Id);
 				Session.Add("Authority", user.Authority);
-				Response.Redirect("Default.aspx");
+				Response.Redirect("Home");
 			}
-
-			//Candidate candidate = new Candidate();
-			//using (var client =new HttpClient())
-			//{
-			//	client.BaseAddress=new Uri("https://localhost:44321/");
-
-			//	var result = client.PostAsync("api/candidate",new StringContent(
-			//		new JavaScriptSerializer().Serialize(candidate),Encoding.UTF8,"application/json")).Result;
-
-
-
-			//}
-
 		}
 	}
 }

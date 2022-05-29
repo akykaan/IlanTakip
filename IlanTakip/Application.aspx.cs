@@ -14,7 +14,7 @@ namespace IlanTakip
 			DataAccessLayer.IlanTakipDbEntities db = new DataAccessLayer.IlanTakipDbEntities();
 
 			var session=Convert.ToInt32(Session["id"]);
-
+			string htmlText = "";
 			var result = (
 				from a in db.Applications
 				join j in db.JobAdverts on a.JobAdvertId equals j.Id
@@ -27,11 +27,19 @@ namespace IlanTakip
 				}).ToList();
 			result.ForEach(x =>
 			{
-				title.InnerHtml = x.title;
+				/* title.InnerHtml = x.title;
 				description.InnerHtml = x.description;
 				city.InnerHtml= x.city;
+				*/
+				htmlText += "<li>";
+				htmlText += "<a " + x.title + "\">";
+				htmlText += "" + x.description + "";
+				htmlText += "" + x.city + "";
+				htmlText += "</a></li>";
+
 			});
-			
+			Label1.Text = htmlText;
+
 		}
 	}
 }

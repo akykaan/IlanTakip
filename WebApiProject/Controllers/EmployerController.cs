@@ -9,5 +9,6 @@ namespace WebApiProject.Controllers
 {
     public class EmployerController : ApiController
     {
+
     }
 }

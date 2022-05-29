@@ -19,6 +19,31 @@ namespace Entities
 
 		public int EmployerId { get; set; }
 		public Employer Employer { get; set; }
+
+		public bool addJobAdvert(JobAdvert jobAdvert)
+		{
+			bool added = false;
+			using (DataAccessLayer.IlanTakipDbEntities db = new DataAccessLayer.IlanTakipDbEntities())
+			{
+				db.JobAdverts.Add(new DataAccessLayer.JobAdverts()
+				{
+					JobDescription=jobAdvert.JobDescription,
+					JobTitle=jobAdvert.JobTitle,
+					CityName=jobAdvert.CityName,
+					OpenPosition=jobAdvert.OpenPosition,
+					EmployerId=jobAdvert.EmployerId,
+					IsActive=true,
+				});
+				var response = db.SaveChanges();
+				if (response == 1)
+				{
+					added = true;
+				}
+			}
+
+			return added;
+		}
+
 		public List<JobAdvert> GetAllJobAdverts()
 		{
 			using (DataAccessLayer.IlanTakipDbEntities db=new DataAccessLayer.IlanTakipDbEntities())

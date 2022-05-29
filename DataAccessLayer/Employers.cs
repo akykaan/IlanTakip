@@ -27,6 +27,7 @@ namespace DataAccessLayer
         public string Name { get; set; }
         public string CompanyMailAddress { get; set; }
         public Nullable<int> Password { get; set; }
+        public string Authority { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JobAdverts> JobAdverts { get; set; }
