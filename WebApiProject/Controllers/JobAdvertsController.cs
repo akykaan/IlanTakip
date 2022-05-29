@@ -10,13 +10,22 @@ namespace WebApiProject.Controllers
 {
     public class JobAdvertsController : ApiController
     {
+		JobAdvert jobAdvert = new JobAdvert();
+
 		// api/jobadverts
+
 		[HttpGet]
 		public IHttpActionResult GetAllJobAdvert()
 		{
-			JobAdvert jobAdvert = new JobAdvert();
-			var list = jobAdvert.GetAllJobAdverts();
-			return Ok(list);
+			var getAll = jobAdvert.GetAllJobAdverts();
+			return Ok(getAll);
+		}
+
+		[HttpPost]
+		public IHttpActionResult Add([FromBody]JobAdvert jobAdvert )
+		{
+			var add = jobAdvert.addJobAdvert(jobAdvert);
+			return Ok(add);
 		}
 	}
 }

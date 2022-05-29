@@ -109,6 +109,7 @@
     <Property Name="CompanyMailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="Int32" />
     <NavigationProperty Name="JobAdverts" Relationship="IlanTakipDbModel.FK_dbo_JobAdverts_dbo_Employers_Employer_EmployersId" FromRole="Employers" ToRole="JobAdverts" />
+    <Property Name="Authority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Events">
     <Key>

@@ -49,6 +49,7 @@
     <EntitySetMapping Name="Employers">
       <EntityTypeMapping TypeName="IlanTakipDbModel.Employers">
         <MappingFragment StoreEntitySet="Employers">
+          <ScalarProperty Name="Authority" ColumnName="Authority" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="CompanyMailAddress" ColumnName="CompanyMailAddress" />
           <ScalarProperty Name="Name" ColumnName="Name" />

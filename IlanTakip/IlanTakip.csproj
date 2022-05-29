@@ -114,6 +114,7 @@
     <Content Include="Application.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="EmployerPage.aspx" />
     <Content Include="ForgotPassword.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Index.aspx" />
@@ -222,6 +223,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployerPage.aspx.cs">
+      <DependentUpon>EmployerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployerPage.aspx.designer.cs">
+      <DependentUpon>EmployerPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>

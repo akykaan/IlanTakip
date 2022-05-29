@@ -61,6 +61,7 @@
     <Property Name="Name" Type="nvarchar(max)" />
     <Property Name="CompanyMailAddress" Type="nvarchar" MaxLength="50" />
     <Property Name="Password" Type="int" />
+    <Property Name="Authority" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Events">
     <Key>

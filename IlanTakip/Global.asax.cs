@@ -51,8 +51,9 @@ namespace IlanTakip
             routes.MapPageRoute("Login", "Login", "~/Login.aspx");
             routes.MapPageRoute("Register", "Register", "~/Register.aspx");
             routes.MapPageRoute("Candidate", "Candidate", "~/Candidate.aspx");
-            routes.MapPageRoute("jobadverts", "jobadverts", "~/JobAdverts.aspx");
-            routes.MapPageRoute("application", "application", "~/Application.aspx");
+            routes.MapPageRoute("Jobadverts", "Jobadverts", "~/JobAdverts.aspx");
+            routes.MapPageRoute("Application", "Application", "~/Application.aspx");
+            routes.MapPageRoute("Employerpage", "Employerpage", "~/EmployerPage.aspx");
         }
 
     }

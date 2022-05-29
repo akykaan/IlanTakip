@@ -22,8 +22,8 @@ namespace Entities
 				var result = from c in db.Cities.ToList()
 							 select new City
 							 {
+								 CityId=c.CityId,
 								 CityName = c.CityName,
-
 							 };
 							  
 				return result.ToList();

@@ -17,6 +17,8 @@ namespace Entities
 		public string CompanyName { get; set; }
 		public string Password { get; set; }
 
+		public string Authority { get; set; }
+
 		public List<JobAdvert> JobAdverts { get; set; }
 
 		public string employerAdd

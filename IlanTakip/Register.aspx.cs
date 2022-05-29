@@ -52,26 +52,6 @@ namespace IlanTakip
 					Label1.Text = "Candidate Eklenemedi.";
 
 			}
-
-			/*DataAccessLayer.Candidates candidates = new DataAccessLayer.Candidates();
-
-			Candidate candidate = new Candidate();
-			List<Candidate> candidatesList = new List<Candidate>
-			{
-				new Candidate
-				{
-					IdentityNumber=IdentityNumber.Value,
-					FirstName=FirstName.Value,
-					LastName=LastName.Value,
-					BirthYear=Convert.ToInt32(BirthYear.Value),
-					Email=Email.Value,
-					Password=Convert.ToInt32(Password.Value),
-					Authority="Candidate",
-				}
-			};
-			
-			Label1.Text = candidate.candidateAdd(candidatesList,candidates);
-			*/
 		}
 
 		protected void RegisterEmployerButton_Click(object sender, EventArgs e)
